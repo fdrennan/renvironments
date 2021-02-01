@@ -1,0 +1,10 @@
+version: '3.4'
+services:
+  ndexbase-rstudio:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: "always"
+    user: 'root'
+    ports:
+      - "80:8787"

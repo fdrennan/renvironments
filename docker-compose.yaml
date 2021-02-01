@@ -1,14 +1,11 @@
 version: '3.4'
 services:
-  ndexbase:
-    build:
-      context: .
-      dockerfile: Dockerfile
+  ndexbase-rstudio:
+    image: fdrennan/drenrbase
     restart: "always"
-    volumes:
-      - ./main.R:/home/main.R
-      - ./main.sh:/home/main.sh
     user: 'root'
+    volumes:
+      - ./main.sh:/home/main.sh:ro
     ports:
-      - "80:3000"
+      - "80:8787"
     command: ["sh", "/home/main.sh"]
